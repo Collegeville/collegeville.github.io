@@ -1,6 +1,12 @@
 <header class="topbar">
   <div class="wrap">
-    <a class="brand" href="{{ '/' | relative_url }}">Collegeville</a>
-    <span>{{ site.tagline }}</span>
+    <div class="topbar__id">
+      <a class="brand" href="{{ '/' | relative_url }}">Collegeville</a>
+      <span>{{ site.tagline }}</span>
+    </div>
+    <nav aria-label="Primary">
+      <a href="{{ '/workshops/' | relative_url }}"{% if page.url == '/workshops/' %} aria-current="page"{% endif %}>Workshops</a>
+      <a href="https://collegeville.github.io/Corpus/">Corpus</a>
+    </nav>
   </div>
 </header>

@@ -65,6 +65,20 @@ a:focus-visible { outline: 2px solid var(--color-copper); outline-offset: 2px; }
   color: inherit;
   text-decoration: none;
 }
+.topbar__id { display: flex; flex-wrap: wrap; align-items: baseline; gap: 0.1rem 1rem; }
+.topbar nav { display: flex; gap: 1.25rem; }
+.topbar nav a {
+  font-family: var(--font-ui);
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--color-on-pine);
+  text-decoration: none;
+  padding-bottom: 0.1rem;
+  border-bottom: 2px solid transparent;
+}
+.topbar nav a:hover,
+.topbar nav a[aria-current="page"] { border-bottom-color: var(--color-copper-light); }
+.topbar a:focus-visible { outline-color: var(--color-copper-light); }
 .topbar span {
   font-family: var(--font-ui);
   font-size: 0.8rem;
@@ -145,6 +159,31 @@ h2 {
   text-decoration: none;
 }
 .tile--corpus a::after { content: ""; position: absolute; inset: 0; }
+
+/* Workshops page ---------------------------------------------------------- */
+.hero--page { padding: 3.75rem 0 3.5rem; }
+.hero--page h1 { font-size: clamp(2rem, 4.2vw, 3rem); }
+.split--flush { padding-top: 0; padding-bottom: 3.5rem; }
+
+.tile--workshop {
+  position: relative; /* anchors the stretched link below */
+  display: flex;
+  flex-direction: column;
+}
+.tile--workshop:hover { border-color: var(--color-pine); }
+.tile__year { font-family: var(--font-display); font-size: 2rem; font-weight: 600; line-height: 1.1; color: var(--color-copper); margin-bottom: 0.5rem; }
+.tile--workshop .tile__meta { font-size: 0.82rem; font-weight: 500; color: var(--color-ink); margin-bottom: 0.8rem; }
+.tile--workshop .tile__outputs { font-size: 0.82rem; font-style: italic; margin-top: 0.8rem; }
+.tile--workshop a {
+  margin-top: auto;
+  padding-top: 1rem;
+  font-family: var(--font-ui);
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--color-pine);
+  text-decoration: none;
+}
+.tile--workshop a::after { content: ""; position: absolute; inset: 0; }
 
 .origins { border-top: 1px solid var(--color-rule); }
 .origins .wrap { padding-top: 3rem; padding-bottom: 2.5rem; }
