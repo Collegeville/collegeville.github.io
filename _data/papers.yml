@@ -1,0 +1,21 @@
+# One entry per paper. The page sorts by date, newest first.
+# The cover image goes at assets/papers/<slug>.jpg (see README.md).
+# `video` is optional. Use kind "short" for a vertical YouTube Short and
+# "video" for a regular widescreen video.
+
+- slug: a-better-lesson
+  title: "A Better Lesson: Staying on the Right Side of Scale"
+  authors: Michael A. Heroux
+  date: "2026-11-06"
+  version: "1.0"
+  doi: 10.5281/zenodo.24024225
+  summary: >
+    Rising compute and AI capability do not erode all investments equally.
+    They tend to erode work that hand-encodes particular solutions, and they
+    tend to reward work that makes solutions checkable. We propose four
+    principles for staying on the right side of scale: build on what scales,
+    anchor in ground truth, make knowledge legible, and reserve people for
+    judgment.
+  video:
+    id: Wdefbre9q38
+    kind: short

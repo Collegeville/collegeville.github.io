@@ -1,0 +1,49 @@
+---
+layout: default
+title: Papers
+permalink: /papers/
+description: "Papers archived on Zenodo with permanent DOIs, with companion videos on YouTube."
+---
+<section class="hero hero--page">
+  <div class="wrap">
+    <h1>Papers and Videos</h1>
+    <hr>
+    <p>Our papers are archived on Zenodo with permanent DOIs, and their companion videos are on YouTube.</p>
+  </div>
+</section>
+
+<section class="wrap topics">
+  <div class="pubs">
+    {% assign papers = site.data.papers | sort: "date" | reverse %}
+    {% for paper in papers %}
+    {% assign doi_url = paper.doi | prepend: "https://doi.org/" %}
+    <article class="pub">
+      <div class="pub__media">
+        <a class="pub__thumb pub__thumb--paper" href="{{ doi_url }}">
+          <span class="pub__frame"><img src="{{ paper.slug | prepend: '/assets/papers/' | append: '.jpg' | relative_url }}" alt="First page of {{ paper.title | escape }}" width="680" height="880" loading="lazy"></span>
+          <span class="pub__label">Read paper &#8599;</span>
+        </a>
+        {% if paper.video %}
+        {% if paper.video.kind == "short" %}
+          {% assign video_url = paper.video.id | prepend: "https://www.youtube.com/shorts/" %}
+          {% assign video_image = "oardefault.jpg" %}
+        {% else %}
+          {% assign video_url = paper.video.id | prepend: "https://www.youtube.com/watch?v=" %}
+          {% assign video_image = "hqdefault.jpg" %}
+        {% endif %}
+        <a class="pub__thumb pub__thumb--{{ paper.video.kind }}" href="{{ video_url }}">
+          <span class="pub__frame pub__frame--video"><img src="https://i.ytimg.com/vi/{{ paper.video.id }}/{{ video_image }}" alt="Video thumbnail for {{ paper.title | escape }}" loading="lazy"></span>
+          <span class="pub__label">Watch video &#8599;</span>
+        </a>
+        {% endif %}
+      </div>
+      <div class="pub__body">
+        <h2><a href="{{ doi_url }}">{{ paper.title }}</a></h2>
+        <p class="pub__meta">{{ paper.authors }} &middot; {{ paper.date | date: "%B %Y" }}{% if paper.version %} &middot; Version {{ paper.version }}{% endif %}</p>
+        <p>{{ paper.summary }}</p>
+        <p class="pub__doi">DOI: <a href="{{ doi_url }}">{{ paper.doi }}</a></p>
+      </div>
+    </article>
+    {% endfor %}
+  </div>
+</section>
