@@ -21,3 +21,24 @@
     id: Wdefbre9q38
     kind: short
     thumbnail: a-better-lesson-video.jpg
+
+- slug: slide-rule-guide
+  title: "The Slide Rule Guide: Ideas for If, When, and How to Use Generative AI Tools for Education"
+  authors: Michael A. Heroux
+  date: "2026-11-06"
+  version: "1.0"
+  doi: 10.5281/zenodo.24027009
+  summary: >
+    Generative AI tools are the new calculators, and they turn some, but not
+    all, existing educational activities into slide rules: labor-intensive
+    steps that were required only because no faster method existed, not
+    because the process itself built understanding. The essay names two risks
+    for educators: permitting AI as a calculator where a paper-and-pencil
+    approach is needed to build fundamentals, and prohibiting AI where it is
+    appropriate, handing students a slide rule when they need a calculator.
+    The challenge is to distinguish these cases and redesign activities around
+    interpretation, creativity, and critical thinking.
+  video:
+    id: qbL50ds6Nlo
+    kind: short
+    thumbnail: slide-rule-guide-video.jpg
