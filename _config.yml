@@ -1,0 +1,27 @@
+title: Collegeville
+tagline: "Research in Scientific Software"
+description: >
+  The Collegeville Project studies how scientific software is designed,
+  developed, tested, sustained and used.
+url: "https://collegeville.github.io"
+# Organization root site, so baseurl is empty. Corpus and the other project
+# sites (/Corpus/, /Scribe/, ...) deploy from their own repos.
+baseurl: ""
+
+markdown: kramdown
+kramdown:
+  input: GFM
+  syntax_highlighter: rouge
+
+sass:
+  style: compressed
+
+plugins:
+  - jekyll-sitemap
+  - jekyll-seo-tag
+
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - README.md
+  - vendor
