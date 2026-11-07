@@ -16,3 +16,9 @@ bundle exec jekyll serve   # http://localhost:4000
    ```bash
    pdftoppm -f 1 -l 1 -r 80 -jpeg -jpegopt quality=82 -singlefile paper.pdf assets/papers/<slug>
    ```
+
+3. Optional: if YouTube's thumbnail is not the frame you want, save one from the video and set `thumbnail` on the entry. Choose a time when the title slide has finished appearing:
+
+   ```bash
+   ffmpeg -ss 4 -i video.mp4 -frames:v 1 -vf scale=540:-2 -q:v 3 assets/papers/<slug>-video.jpg
+   ```

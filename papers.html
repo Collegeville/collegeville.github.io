@@ -32,7 +32,7 @@ description: "Papers archived on Zenodo with permanent DOIs, with companion vide
           {% assign video_image = "hqdefault.jpg" %}
         {% endif %}
         <a class="pub__thumb pub__thumb--{{ paper.video.kind }}" href="{{ video_url }}">
-          <span class="pub__frame pub__frame--video"><img src="https://i.ytimg.com/vi/{{ paper.video.id }}/{{ video_image }}" alt="Video thumbnail for {{ paper.title | escape }}" loading="lazy"></span>
+          <span class="pub__frame pub__frame--video"><img src="{% if paper.video.thumbnail %}{{ paper.video.thumbnail | prepend: '/assets/papers/' | relative_url }}{% else %}https://i.ytimg.com/vi/{{ paper.video.id }}/{{ video_image }}{% endif %}" alt="Video thumbnail for {{ paper.title | escape }}" loading="lazy"></span>
           <span class="pub__label">Watch video &#8599;</span>
         </a>
         {% endif %}

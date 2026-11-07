@@ -1,7 +1,8 @@
 # One entry per paper. The page sorts by date, newest first.
 # The cover image goes at assets/papers/<slug>.jpg (see README.md).
 # `video` is optional. Use kind "short" for a vertical YouTube Short and
-# "video" for a regular widescreen video.
+# "video" for a regular widescreen video. `thumbnail` is optional: it names an
+# image in assets/papers/ to use in place of YouTube's own thumbnail.
 
 - slug: a-better-lesson
   title: "A Better Lesson: Staying on the Right Side of Scale"
@@ -19,3 +20,4 @@
   video:
     id: Wdefbre9q38
     kind: short
+    thumbnail: a-better-lesson-video.jpg
