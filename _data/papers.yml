@@ -42,3 +42,24 @@
     id: qbL50ds6Nlo
     kind: short
     thumbnail: slide-rule-guide-video.jpg
+
+- slug: qpus-are-not-gpus
+  title: "QPUs Are Not GPUs: Why Quantum Processors Need Constant Classical Control"
+  authors: Michael A. Heroux
+  date: "2026-11-06"
+  version: "1.0"
+  doi: 10.5281/zenodo.24028100
+  summary: >
+    Many in the HPC community expect quantum processing units (QPUs) to fit
+    into future systems the way GPUs do: as accelerators that receive work from
+    a host and return results. This paper argues that the analogy misses
+    something essential. Qubits are fragile, and useful quantum computation
+    depends on quantum error correction, in which classical decoders must
+    interpret syndrome measurements and feed corrections back to the device
+    continuously, often within microseconds. It closes with implications for
+    system architects and facility planners: integrating quantum computing into
+    HPC is as much a classical systems problem as a quantum one.
+  video:
+    id: qJzObldTwzU
+    kind: short
+    thumbnail: qpus-are-not-gpus-video.jpg
