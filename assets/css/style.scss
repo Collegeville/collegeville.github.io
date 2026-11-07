@@ -2,42 +2,29 @@
 ---
 /* ==========================================================================
    Collegeville — design tokens
-   Copied from the Corpus site (Collegeville/Corpus) so the two read as one
-   family; keep the tokens below in step with that repo.
-   Palette: warm manuscript paper + CSB/SJU navy + a muted vellum gold,
-   quietly nodding to the Benedictine/scriptorium setting without leaning on
-   it. Documentation-site structure: persistent sidebar nav, generous
-   whitespace, clear heading hierarchy.
+   Pine is this site's color and navy is Corpus's. The two sites share the
+   copper accent, the paper background, and the fonts. Keep those three, and
+   the pine top bar, in step with Collegeville/Corpus.
    ========================================================================== */
 
 :root {
-  /* Color -------------------------------------------------------------- */
-  --color-bg:         #FBFAF7; /* warm paper, not the generic AI-cream */
-  --color-surface:    #FFFFFF;
-  --color-margin:     #F3EFE5; /* deeper paper tone for the marginalia rail */
-  --color-ink:        #23262B; /* primary text, warm charcoal not pure black */
-  --color-muted:      #6B6F76; /* secondary text, captions, metadata */
-  --color-navy:       #263959; /* CSB/SJU navy — primary accent */
-  --color-navy-deep:  #182338; /* hover/active states */
-  --color-gold:       #A9812F; /* muted vellum gold — secondary accent */
-  --color-rule:       #DEDBD2; /* hairline borders */
-  --color-rule-soft:  #EDEBE4;
+  --color-bg:           #FBFAF7; /* shared with Corpus */
+  --color-surface:      #FFFFFF;
+  --color-ink:          #1E2522;
+  --color-muted:        #56605B;
+  --color-pine:         #1F4D3F;
+  --color-pine-deep:    #163A2F; /* top bar, shared with Corpus */
+  --color-copper:       #A44E25; /* accent, shared with Corpus */
+  --color-copper-light: #F0B48F; /* copper for use on pine */
+  --color-rule:         #DEDBD2;
+  --color-on-pine:      #F4F5EE;
+  --color-on-pine-muted:#CBD8D1;
 
-  /* Type ----------------------------------------------------------------
-     Display/headings: Fraunces — a serif with old-style, manuscript
-     character, used with restraint (weight/optical size only, no italics
-     everywhere).
-     Body: Source Serif 4 — readable long-form serif for skill content.
-     Utility: Inter — nav, labels, tags, metadata chips.
-  ------------------------------------------------------------------------ */
   --font-display: "Fraunces", ui-serif, Georgia, serif;
   --font-body:    "Source Serif 4", ui-serif, Georgia, serif;
   --font-ui:      "Inter", ui-sans-serif, system-ui, sans-serif;
 
-  --measure: 42rem;      /* comfortable reading line length */
-  --sidebar-width: 15.5rem;
-  --margin-rail-width: 13rem; /* the marginalia column on skill pages */
-  --radius: 3px;          /* minimal rounding — documentation, not app UI */
+  --radius: 3px;
 }
 
 * { box-sizing: border-box; }
@@ -54,527 +41,132 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
-a {
-  color: var(--color-navy);
-  text-decoration-thickness: 1px;
-  text-underline-offset: 0.15em;
-}
-a:hover { color: var(--color-navy-deep); }
-a:focus-visible,
-button:focus-visible {
-  outline: 2px solid var(--color-gold);
-  outline-offset: 2px;
-}
+a { color: var(--color-pine); text-decoration-thickness: 1px; text-underline-offset: 0.15em; }
+a:focus-visible { outline: 2px solid var(--color-copper); outline-offset: 2px; }
 
-h1, h2, h3, h4 {
+.wrap { max-width: 72rem; margin: 0 auto; padding: 0 2rem; }
+
+/* Top bar: Corpus carries the same bar, in the same color, on every page. */
+.topbar { background: var(--color-pine-deep); color: var(--color-on-pine); }
+.topbar .wrap {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 0.25rem 1.5rem;
+  padding-top: 0.9rem;
+  padding-bottom: 0.9rem;
+}
+.brand {
   font-family: var(--font-display);
+  font-size: 1.25rem;
   font-weight: 600;
   line-height: 1.2;
-  color: var(--color-ink);
-}
-h1 { font-size: 2.5rem; letter-spacing: -0.01em; }
-
-.home-tagline {
-  font-family: var(--font-ui);
-  font-size: 1.05rem;
-  color: var(--color-muted);
-  margin: 0.4rem 0 0;
-}
-
-/* Section headings inside skill/page bodies (Definition, Learning Outcome,
-   etc.) get a quieter, italic treatment with a pilcrow marker — reads as
-   a labeled section of a standard template, not a generic bold subhead.
-   This is the one place numbering-like markers earn their keep here: the
-   template order is real and consistent across every skill page. */
-h2 {
-  font-size: 1.4rem;
-  font-style: italic;
-  font-weight: 600;
-  color: var(--color-navy);
-  margin-top: 2.75em;
-}
-h2::before {
-  content: "\00B6\00A0";
-  color: var(--color-gold);
-  font-style: normal;
-}
-h3 { font-size: 1.15rem; margin-top: 2em; }
-
-code, pre {
-  font-family: ui-monospace, "SFMono-Regular", Menlo, monospace;
-  font-size: 0.9em;
-}
-pre {
-  background: var(--color-surface);
-  border: 1px solid var(--color-rule);
-  border-radius: var(--radius);
-  padding: 1rem;
-  overflow-x: auto;
-}
-
-/* Layout shell --------------------------------------------------------- */
-.site {
-  display: grid;
-  grid-template-columns: var(--sidebar-width) minmax(0, 1fr);
-  min-height: 100vh;
-}
-
-.sidebar {
-  border-right: 1px solid var(--color-rule);
-  padding: 2rem 1.5rem;
-  font-family: var(--font-ui);
-}
-
-.sidebar__brand {
-  display: block;
-  font-family: var(--font-display);
-  font-size: 1.4rem;
-  font-weight: 600;
-  color: var(--color-navy);
-  margin-bottom: 0.15rem;
+  color: inherit;
   text-decoration: none;
 }
-.sidebar__tagline {
-  display: block;
-  font-size: 0.75rem;
-  color: var(--color-muted);
-  line-height: 1.4;
-  margin-bottom: 2rem;
-}
-
-.sidebar nav ul {
-  list-style: none;
-  margin: 0 0 1.75rem;
-  padding: 0;
-}
-.sidebar nav .nav-section-label {
-  display: block;
-  font-family: var(--font-display);
-  font-size: 1.05rem;
-  font-weight: 600;
-  font-style: italic;
-  text-transform: none;
-  letter-spacing: 0.01em;
-  color: var(--color-navy);
-  margin: 0 0 0.6rem;
-}
-.sidebar nav ul + .nav-section-label {
-  margin-top: 0.25rem;
-}
-.sidebar nav a {
-  display: block;
-  padding: 0.3rem 0;
-  color: var(--color-ink);
-  text-decoration: none;
-  font-size: 0.9rem;
-  border-left: 2px solid transparent;
-  padding-left: 0.6rem;
-  margin-left: -0.6rem;
-}
-.sidebar nav a:hover {
-  color: var(--color-navy);
-}
-.sidebar nav a.is-active {
-  color: var(--color-navy);
-  border-left-color: var(--color-gold);
-  background: var(--color-margin);
-  font-weight: 600;
-}
-.sidebar nav a.nav-overview-link {
-  font-style: italic;
-  color: var(--color-muted);
-  padding-bottom: 0.55rem;
-  margin-bottom: 0.3rem;
-  border-bottom: 1px solid var(--color-rule);
-}
-.sidebar nav a.nav-overview-link:hover {
-  color: var(--color-navy);
-}
-.sidebar nav a.nav-overview-link.is-active {
-  color: var(--color-navy);
-  font-style: italic;
-}
-
-/* Mobile nav toggle — styled here so it's ready to go the moment the
-   min-width override below stops forcing it open; harmless on wide
-   viewports where .sidebar__nav-toggle > summary is display:none. */
-.sidebar__nav-toggle {
-  margin-top: 1rem;
-}
-.sidebar__nav-toggle > summary {
-  cursor: pointer;
-  list-style: none;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  font-family: var(--font-ui);
-  font-size: 0.85rem;
-  font-weight: 600;
-  color: var(--color-navy);
-  padding: 0.65rem 0;
-  border-top: 1px solid var(--color-rule);
-  border-bottom: 1px solid var(--color-rule);
-}
-.sidebar__nav-toggle > summary::-webkit-details-marker {
-  display: none;
-}
-.sidebar__nav-toggle > summary::after {
-  content: "\25BE"; /* ▾ */
-  color: var(--color-gold);
-}
-.sidebar__nav-toggle[open] > summary {
-  border-bottom: none;
-}
-.sidebar__nav-toggle[open] > summary::after {
-  content: "\25B4"; /* ▴ */
-}
-
-.content {
-  padding: 3rem 3rem 6rem;
-  max-width: calc(var(--measure) + var(--margin-rail-width) + 6rem);
-}
-
-.content__inner { max-width: var(--measure); }
-/* Skill pages use the full .content width to fit the marginalia rail;
-   the reading column itself is still capped via .skill-body below. */
-.content__inner--wide { max-width: none; }
-
-.eyebrow {
-  font-family: var(--font-ui);
-  font-size: 0.75rem;
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
-  color: var(--color-navy);
-  margin-bottom: 0.5rem;
-}
-
-.rule {
-  border: none;
-  border-top: 2px solid var(--color-navy);
-  width: 3rem;
-  margin: 1rem 0 2rem;
-}
-
-/* Metadata chips — fallback presentation for narrow viewports, and for
-   pages that don't use the marginalia rail (index/listing pages). ------ */
-.meta {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.5rem;
-  font-family: var(--font-ui);
-  margin: 1.5rem 0 2.5rem;
-}
-.chip {
-  display: inline-block;
-  font-size: 0.75rem;
-  padding: 0.2rem 0.6rem;
-  border-radius: 999px;
-  border: 1px solid var(--color-rule);
-  color: var(--color-muted);
-  background: var(--color-surface);
-}
-.chip--navy {
-  border-color: var(--color-navy);
-  color: var(--color-navy);
-}
-.chip--gold {
-  border-color: var(--color-gold);
-  color: var(--color-gold);
-}
-
-/* Signature element: the marginalia rail --------------------------------
-   Skill pages replace the generic "chips row under the title" pattern
-   with a vertical annotation column, echoing marginal notes in a
-   manuscript — Corpus's own namesake. It's the one place this site
-   spends its visual boldness; everything else stays quiet. Collapses to
-   a plain horizontal chip row (via .meta/.chip) on narrow viewports. */
-.skill-layout {
-  display: grid;
-  grid-template-columns: minmax(0, 1fr) var(--margin-rail-width);
-  gap: 3rem;
-  align-items: start;
-}
-
-.marginalia {
-  border-left: 1px solid var(--color-rule);
-  padding: 0.1rem 0 0.1rem 1.25rem;
-  font-family: var(--font-ui);
-}
-.marginalia__item {
-  margin-bottom: 1.5rem;
-}
-.marginalia__item:last-child { margin-bottom: 0; }
-.marginalia__label {
-  display: block;
-  font-size: 0.68rem;
-  text-transform: uppercase;
-  letter-spacing: 0.07em;
-  color: var(--color-navy);
-  margin-bottom: 0.3rem;
-}
-.marginalia__value {
-  display: block;
-  font-size: 0.85rem;
-  color: var(--color-ink);
-  line-height: 1.4;
-}
-.marginalia__value a {
-  color: var(--color-ink);
-}
-.marginalia__tags {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.35rem;
-}
-.marginalia a.marginalia__companion {
-  color: var(--color-gold);
-  font-weight: 600;
-}
-
-@media (max-width: 64rem) {
-  .skill-layout { grid-template-columns: 1fr; }
-  .marginalia {
-    border-left: none;
-    border-top: 1px solid var(--color-rule);
-    padding: 1rem 0 0;
-    margin-bottom: 2rem;
-    display: flex;
-    flex-wrap: wrap;
-    gap: 1.5rem 2rem;
-  }
-  .marginalia__item { margin-bottom: 0; }
-}
-
-/* Signature element: a manuscript-style drop cap opening the Definition
-   section of every skill page — a quiet nod to Corpus's scriptorium
-   lineage, and functionally a wayfinding cue for "the content starts here"
-   right after the metadata block. Used once per page, nowhere else. */
-.skill-body {
-  max-width: var(--measure);
-}
-.skill-body > p:first-of-type::first-letter {
-  font-family: var(--font-display);
-  font-size: 3.4rem;
-  font-weight: 600;
-  color: var(--color-navy);
-  float: left;
-  line-height: 0.8;
-  padding-right: 0.1em;
-  padding-top: 0.05em;
-}
-
-/* Rubric / Checklist sections: kramdown renders "- [ ]" items as a plain
-   <ul> with a task-list-item class, so without this the browser shows a
-   bullet next to the checkbox on every line. Drop the list's own marker
-   and let the checkbox stand alone. */
-.skill-body ul.task-list {
-  list-style: none;
-  padding-left: 0;
-}
-.skill-body ul.task-list .task-list-item-checkbox {
-  margin-right: 0.6em;
-}
-
-/* Homepage-only featured callout — the one place this site points a
-   first-time visitor at something before the page has explained itself.
-   Deliberately distinct from .card: full-width, a gold left rule like a
-   marginal annotation, sits above the intro paragraph rather than beside
-   its peers in the card grid. Links off-site (maherou.github.io), so it
-   carries an explicit external-link cue. */
-.featured-callout {
-  position: relative; /* anchors the stretched-link ::after below */
-  display: block;
-  background: var(--color-margin);
-  border: 1px solid var(--color-rule);
-  border-left: 4px solid var(--color-gold);
-  border-radius: var(--radius);
-  padding: 1.5rem 1.75rem;
-  margin: 0 0 2.5rem;
-}
-.skill-body .featured-callout { margin-top: 2rem; }
-.featured-callout:hover {
-  border-color: var(--color-navy);
-  border-left-color: var(--color-gold);
-  background: var(--color-surface);
-}
-.featured-callout__eyebrow {
-  font-family: var(--font-ui);
-  font-size: 0.75rem;
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
-  color: var(--color-gold);
-  margin-bottom: 0.4rem;
-}
-.featured-callout__title {
-  font-family: var(--font-display);
-  font-weight: 600;
-  color: var(--color-ink);
-  font-size: 1.6rem;
-  line-height: 1.25;
-  margin: 0 0 0.5rem;
-}
-.featured-callout__body {
-  margin: 0 0 0.75rem;
-  font-family: var(--font-ui);
-  color: var(--color-muted);
-  font-size: 0.95rem;
-  line-height: 1.55;
-  max-width: 42rem;
-}
-.featured-callout__cta {
-  display: inline-block;
-  font-family: var(--font-ui);
-  font-size: 0.85rem;
-  font-weight: 600;
-  color: var(--color-navy);
-  text-decoration: none;
-}
-.featured-callout__cta::after {
-  /* Stretched link: makes the whole card clickable/hoverable while
-     keeping markup that kramdown can safely parse (a bare <a> wrapping
-     block-level children like <div>/<h3>/<p> breaks kramdown's inline
-     HTML parser, since <a> is span-level in its default tag list). */
-  content: "";
-  position: absolute;
-  inset: 0;
-}
-.featured-callout:hover .featured-callout__cta {
-  color: var(--color-navy-deep);
-}
-
-/* Skill/section index cards -------------------------------------------- */
-.card-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(15rem, 1fr));
-  gap: 1.25rem;
-  margin: 2rem 0;
-}
-.card {
-  border: 1px solid var(--color-rule);
-  border-radius: var(--radius);
-  padding: 1.1rem 1.2rem;
-  background: var(--color-surface);
-  text-decoration: none;
-  color: var(--color-ink);
-  display: block;
-}
-.card:hover {
-  border-color: var(--color-navy);
-  background: var(--color-margin);
-}
-.card h3 {
-  margin: 0 0 0.35rem;
-  font-size: 1.05rem;
-}
-.card p {
-  margin: 0;
-  font-family: var(--font-ui);
-  font-size: 0.85rem;
-  color: var(--color-muted);
-  line-height: 1.5;
-}
-
-/* Search page ------------------------------------------------------------
-   Results reuse .card / .card-grid (the same tiles as the collection index
-   pages) so a search result looks like any other listing entry on the
-   site, rather than introducing a distinct visual language just for it. */
-.search-input {
-  display: block;
-  width: 100%;
-  font-family: var(--font-body);
-  font-size: 1.05rem;
-  padding: 0.65rem 0.9rem;
-  border: 1px solid var(--color-rule);
-  border-radius: var(--radius);
-  background: var(--color-surface);
-  color: var(--color-ink);
-  margin: 1rem 0;
-}
-.search-input:focus-visible {
-  outline: 2px solid var(--color-gold);
-  outline-offset: 2px;
-  border-color: var(--color-navy);
-}
-.search-status {
-  font-family: var(--font-ui);
-  font-size: 0.85rem;
-  color: var(--color-muted);
-  margin: 0 0 1.5rem;
-}
-.search-result__meta {
-  font-family: var(--font-ui);
-  font-weight: 600;
-  color: var(--color-navy);
-}
-
-/* Content tables (schedules, comparisons) -------------------------------
-   display: block + overflow-x: auto keeps a wide table (many columns, or
-   long cell text like the sample schedule) from ever forcing the whole
-   page to scroll horizontally on narrow viewports. */
-table {
-  display: block;
-  overflow-x: auto;
-  max-width: 100%;
-  width: 100%;
-  border-collapse: collapse;
-  margin: 1.5rem 0 2rem;
-  font-size: 0.95rem;
-}
-th, td {
-  text-align: left;
-  padding: 0.55rem 0.9rem;
-  border-bottom: 1px solid var(--color-rule);
-  vertical-align: top;
-}
-th {
-  font-family: var(--font-ui);
-  font-size: 0.78rem;
-  letter-spacing: 0.02em;
-  text-transform: uppercase;
-  color: var(--color-navy);
-  background: var(--color-margin);
-  border-bottom: 2px solid var(--color-navy);
-  white-space: nowrap;
-}
-tbody tr:nth-child(even) {
-  background: var(--color-margin);
-}
-
-footer.site-footer {
+.topbar span {
   font-family: var(--font-ui);
   font-size: 0.8rem;
-  color: var(--color-muted);
-  border-top: 1px solid var(--color-rule);
-  margin-top: 4rem;
-  padding-top: 1.5rem;
+  font-weight: 500;
+  line-height: 1.4;
+  color: var(--color-on-pine-muted);
 }
 
-/* Responsive: collapse sidebar above content on narrow viewports ------- */
-@media (max-width: 48rem) {
-  .site { grid-template-columns: 1fr; }
-  .sidebar {
-    border-right: none;
-    border-bottom: 1px solid var(--color-rule);
-  }
-  .content { padding: 2rem 1.25rem 4rem; }
+.hero { background: var(--color-pine); color: var(--color-on-pine); padding: 5.5rem 0 5rem; }
+.hero h1 {
+  font-family: var(--font-display);
+  font-size: clamp(2.1rem, 5vw, 3.6rem);
+  font-weight: 600;
+  line-height: 1.12;
+  letter-spacing: -0.015em;
+  max-width: 21em;
+  margin: 0;
+}
+.hero hr { border: 0; border-top: 3px solid var(--color-copper-light); width: 4rem; margin: 2rem 0 1.5rem; }
+.hero p { font-size: 1.25rem; line-height: 1.55; color: var(--color-on-pine-muted); max-width: 40rem; margin: 0; }
+
+h2 {
+  font-family: var(--font-ui);
+  font-size: 0.78rem;
+  font-weight: 600;
+  line-height: 1.4;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-copper);
+  margin: 0 0 1.25rem;
 }
 
-/* Above the sidebar-collapse breakpoint, ignore the <details> mechanism
-   entirely and keep the nav permanently open — restores the persistent
-   sidebar this site is built around. !important beats the UA stylesheet
-   rule that hides non-summary children of a closed <details>. */
-@media (min-width: 48.0625rem) {
-  .sidebar__nav-toggle > summary { display: none; }
-  .sidebar__nav-toggle > nav { display: block !important; }
-  /* Current Chromium wraps a closed <details>'s non-summary children in an
-     internal ::details-content box (content-visibility: hidden, 0 block
-     size) instead of hiding the children directly — overriding display on
-     the nav itself is a no-op there, so the wrapper has to be targeted too. */
-  .sidebar__nav-toggle::details-content {
-    content-visibility: visible !important;
-    block-size: auto !important;
-    overflow: visible !important;
-  }
+.split {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 3.5rem;
+  padding-top: 4rem;
+  padding-bottom: 1rem;
+}
+.split p { margin: 0; }
+
+.topics { padding-top: 3.5rem; padding-bottom: 4rem; }
+.grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1.25rem; }
+.tile {
+  background: var(--color-surface);
+  border: 1px solid var(--color-rule);
+  border-top: 3px solid var(--color-pine);
+  border-radius: var(--radius);
+  padding: 1.4rem 1.5rem 1.5rem;
+}
+.tile h3 {
+  font-family: var(--font-display);
+  font-size: 1.2rem;
+  font-weight: 600;
+  line-height: 1.25;
+  color: var(--color-pine-deep);
+  margin: 0 0 0.5rem;
+}
+.tile p { font-family: var(--font-ui); font-size: 0.92rem; line-height: 1.55; color: var(--color-muted); margin: 0; }
+
+.tile--corpus {
+  position: relative; /* anchors the stretched link below */
+  background: var(--color-pine);
+  border-color: var(--color-pine);
+  border-top-color: var(--color-copper-light);
+}
+.tile--corpus:hover { background: var(--color-pine-deep); }
+.tile--corpus h3 { color: var(--color-on-pine); }
+.tile--corpus p { color: var(--color-on-pine-muted); }
+.tile--corpus a {
+  display: inline-block;
+  margin-top: 0.9rem;
+  font-family: var(--font-ui);
+  font-size: 0.9rem;
+  font-weight: 600;
+  line-height: 1.4;
+  color: var(--color-copper-light);
+  text-decoration: none;
+}
+.tile--corpus a::after { content: ""; position: absolute; inset: 0; }
+
+.origins { border-top: 1px solid var(--color-rule); }
+.origins .wrap { padding-top: 3rem; padding-bottom: 2.5rem; }
+.origins p { max-width: 46rem; margin: 0 0 1em; }
+
+.page { padding-top: 4rem; padding-bottom: 4rem; }
+.page h1 { font-family: var(--font-display); font-size: 2.5rem; font-weight: 600; line-height: 1.2; color: var(--color-pine); margin: 0 0 1.25rem; }
+
+.site-footer { font-family: var(--font-ui); font-size: 0.8rem; line-height: 1.5; color: var(--color-muted); padding-bottom: 2.5rem; }
+.site-footer p { margin: 0; }
+
+@media (max-width: 56rem) {
+  .grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .split { grid-template-columns: 1fr; gap: 2.5rem; }
+}
+@media (max-width: 36rem) {
+  .grid { grid-template-columns: 1fr; }
+  .wrap { padding: 0 1rem; }
+  .hero { padding: 3rem 0; }
+  .hero p { font-size: 1.1rem; }
+  .split { padding-top: 2.5rem; }
+  .topics { padding-top: 2.5rem; }
 }
 
 @media (prefers-reduced-motion: reduce) {

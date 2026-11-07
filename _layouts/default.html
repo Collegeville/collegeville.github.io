@@ -4,14 +4,10 @@
   {% include head.html %}
 </head>
 <body>
-  <div class="site">
-    {% include sidebar.html %}
-    <main class="content">
-      <div class="content__inner{% if page.layout == 'skill' or page.wide %} content__inner--wide{% endif %}">
-        {{ content }}
-        {% include footer.html %}
-      </div>
-    </main>
-  </div>
+  {% include topbar.html %}
+  <main>
+    {{ content }}
+  </main>
+  {% include footer.html %}
 </body>
 </html>
