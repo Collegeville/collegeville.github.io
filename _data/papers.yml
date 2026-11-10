@@ -1,4 +1,4 @@
-# One entry per paper. The page sorts by date, newest first.
+# One entry per paper. The page sorts by month, newest first, then by title.
 # The cover image goes at assets/papers/<slug>.jpg (see README.md).
 # `video` is optional. Use kind "short" for a vertical YouTube Short and
 # "video" for a regular widescreen video. `thumbnail` is optional: it names an

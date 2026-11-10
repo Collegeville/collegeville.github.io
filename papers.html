@@ -14,7 +14,10 @@ description: "Papers archived on Zenodo with permanent DOIs, with companion vide
 
 <section class="wrap topics">
   <div class="pubs">
-    {% assign papers = site.data.papers | sort: "date" | reverse %}
+    {% comment %}Newest month first; papers from the same month sort by title.{% endcomment %}
+    {% assign months = site.data.papers | group_by_exp: "p", "p.date | slice: 0, 7" | sort: "name" | reverse %}
+    {% for month in months %}
+    {% assign papers = month.items | sort_natural: "title" %}
     {% for paper in papers %}
     {% if paper.url %}{% assign paper_url = paper.url %}{% else %}{% assign paper_url = paper.doi | prepend: "https://doi.org/" %}{% endif %}
     <article class="pub">
@@ -53,6 +56,7 @@ description: "Papers archived on Zenodo with permanent DOIs, with companion vide
         {% if paper.video.doi %}<p class="pub__doi">Video DOI: <a href="https://doi.org/{{ paper.video.doi }}">{{ paper.video.doi }}</a></p>{% endif %}
       </div>
     </article>
+    {% endfor %}
     {% endfor %}
   </div>
 </section>
