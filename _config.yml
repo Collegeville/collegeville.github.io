@@ -1,8 +1,8 @@
 title: Collegeville
-tagline: "Research in Scientific Software"
+tagline: "Research Software Science"
 description: >
-  The Collegeville Project studies how scientific software is designed,
-  developed, tested, sustained and used.
+  Applying the scientific method to how we learn, build, and trust research
+  software, now in the age of AI.
 url: "https://collegeville.github.io"
 # Organization root site, so baseurl is empty. Corpus and the other project
 # sites (/Corpus/, /Scribe/, ...) deploy from their own repos.
