@@ -98,6 +98,7 @@ a:focus-visible { outline: 2px solid var(--color-copper); outline-offset: 2px; }
   margin: 0;
 }
 .hero hr { border: 0; border-top: 3px solid var(--color-copper-light); width: 4rem; margin: 2rem 0 1.5rem; }
+.hero__tagline { font-style: italic; }
 .hero p { font-size: 1.25rem; line-height: 1.55; color: var(--color-on-pine-muted); max-width: 40rem; margin: 0; }
 
 h2 {
@@ -120,8 +121,13 @@ h2 {
 }
 .split p { margin: 0; }
 
+.intro { padding-top: 3.5rem; }
+.intro p { font-size: 1.2rem; line-height: 1.6; max-width: 46rem; margin: 0; }
 .topics { padding-top: 3.5rem; padding-bottom: 4rem; }
+.topics--flush { padding-top: 0; }
 .grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1.25rem; }
+.grid--two { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.grid--two .tile p { font-family: var(--font-body); font-size: 1rem; line-height: 1.6; color: var(--color-ink); }
 .tile {
   background: var(--color-surface);
   border: 1px solid var(--color-rule);
@@ -288,6 +294,9 @@ h2 {
   .split { padding-top: 2.5rem; }
   .split--flush { padding-top: 0; padding-bottom: 2.5rem; }
   .topics { padding-top: 2.5rem; padding-bottom: 3rem; }
+  .topics--flush { padding-top: 0; }
+  .intro { padding-top: 2.5rem; }
+  .intro p { font-size: 1.1rem; }
   .page { padding-top: 2.5rem; padding-bottom: 2.5rem; }
 }
 
