@@ -266,6 +266,21 @@ h2 {
 .pub__body p { margin: 0 0 1rem; }
 .pub__body .pub__meta { font-family: var(--font-ui); font-size: 0.85rem; color: var(--color-muted); }
 .pub__body .pub__doi { font-family: var(--font-ui); font-size: 0.85rem; margin: 0; }
+.pub__body .pub__doi + .pub__doi { margin-top: 0.25rem; }
+.pub__body .pub__meta cite { font-style: italic; }
+.pub__related-title {
+  font-family: var(--font-ui);
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-muted);
+  margin: 0 0 0.4rem;
+}
+.pub__related { list-style: none; margin: 0 0 1rem; padding: 0; font-family: var(--font-ui); font-size: 0.85rem; line-height: 1.45; }
+.pub__related li { margin: 0 0 0.35rem; }
+.pub__related span { color: var(--color-muted); }
+.pub__related span::before { content: "· "; }
 
 .origins { border-top: 1px solid var(--color-rule); }
 .origins .wrap { padding-top: 3rem; padding-bottom: 2.5rem; }

@@ -63,3 +63,39 @@
     id: qJzObldTwzU
     kind: short
     thumbnail: qpus-are-not-gpus-video.jpg
+
+# Already published elsewhere: `url` replaces the DOI link for the paper,
+# `venue` names where it appeared, and `related` lists other versions.
+# The cover is page 2 of the Digital Commons PDF (page 1 is its cover sheet).
+- slug: research-software-science
+  title: "Research Software Science: Expanding the Impact of Research Software Engineering"
+  authors: Michael A. Heroux
+  date: "2022-11-01"
+  venue: "Computing in Science & Engineering 24(6): 22–27"
+  url: https://digitalcommons.csbsju.edu/csci_pubs/36/
+  summary: >
+    Software plays a central role in scientific discovery. Improving how we
+    develop and use software for research can have both broad and deep impacts
+    on a spectrum of challenges and opportunities society faces today. The
+    emergence of the Research Software Engineer (RSE) as a role correlates with
+    the growing complexity of scientific challenges and the diversity of
+    software team skills. In this paper, we describe research software science
+    (RSS), an idea related to RSE, and particularly suited to research software
+    teams. RSS promotes the use of scientific methodologies to explore and
+    establish broadly applicable knowledge. Using RSS, we can pursue
+    sustainable, repeatable, and reproducible software improvements that
+    positively impact research software toward improved scientific discovery.
+  related:
+    - label: "Journal version on IEEE Xplore"
+      url: https://ieeexplore.ieee.org/document/10078171
+    - label: "Research Software Science: A Scientific Approach to Understanding and Improving How We Develop and Use Software for Research"
+      note: "Better Scientific Software blog"
+      url: https://bssw.io/blog_posts/research-software-science-a-scientific-approach-to-understanding-and-improving-how-we-develop-and-use-software-for-research
+    - label: "Is Research Software Science a Metascience?"
+      note: "Eisinger and Heroux, arXiv 2025"
+      url: https://arxiv.org/abs/2509.13436
+  video:
+    id: 6gz3zvkkmmc
+    kind: short
+    thumbnail: research-software-science-video.jpg
+    doi: 10.5281/zenodo.24115973

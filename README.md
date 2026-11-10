@@ -22,3 +22,5 @@ bundle exec jekyll serve   # http://localhost:4000
    ```bash
    ffmpeg -ss 4 -i video.mp4 -frames:v 1 -vf scale=540:-2 -q:v 3 assets/papers/<slug>-video.jpg
    ```
+
+4. For a paper already published elsewhere, set `url` (where "Read paper" goes) in place of `doi`, `venue` for the journal citation, and `related` for other versions (each with `label`, `url` and an optional `note`). Set `video.doi` if the video has its own Zenodo record.

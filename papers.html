@@ -16,10 +16,10 @@ description: "Papers archived on Zenodo with permanent DOIs, with companion vide
   <div class="pubs">
     {% assign papers = site.data.papers | sort: "date" | reverse %}
     {% for paper in papers %}
-    {% assign doi_url = paper.doi | prepend: "https://doi.org/" %}
+    {% if paper.url %}{% assign paper_url = paper.url %}{% else %}{% assign paper_url = paper.doi | prepend: "https://doi.org/" %}{% endif %}
     <article class="pub">
       <div class="pub__media">
-        <a class="pub__thumb pub__thumb--paper" href="{{ doi_url }}">
+        <a class="pub__thumb pub__thumb--paper" href="{{ paper_url }}">
           <span class="pub__frame"><img src="{{ paper.slug | prepend: '/assets/papers/' | append: '.jpg' | relative_url }}" alt="First page of {{ paper.title | escape }}" width="680" height="880" loading="lazy"></span>
           <span class="pub__label">Read paper &#8599;</span>
         </a>
@@ -38,10 +38,19 @@ description: "Papers archived on Zenodo with permanent DOIs, with companion vide
         {% endif %}
       </div>
       <div class="pub__body">
-        <h2><a href="{{ doi_url }}">{{ paper.title }}</a></h2>
-        <p class="pub__meta">{{ paper.authors }} &middot; {{ paper.date | date: "%B %Y" }}{% if paper.version %} &middot; Version {{ paper.version }}{% endif %}</p>
+        <h2><a href="{{ paper_url }}">{{ paper.title }}</a></h2>
+        <p class="pub__meta">{{ paper.authors }} &middot; {{ paper.date | date: "%B %Y" }}{% if paper.venue %} &middot; <cite>{{ paper.venue | escape }}</cite>{% endif %}{% if paper.version %} &middot; Version {{ paper.version }}{% endif %}</p>
         <p>{{ paper.summary }}</p>
-        <p class="pub__doi">DOI: <a href="{{ doi_url }}">{{ paper.doi }}</a></p>
+        {% if paper.related %}
+        <h3 class="pub__related-title">Related</h3>
+        <ul class="pub__related">
+          {% for item in paper.related %}
+          <li><a href="{{ item.url }}">{{ item.label | escape }}</a>{% if item.note %} <span>{{ item.note }}</span>{% endif %}</li>
+          {% endfor %}
+        </ul>
+        {% endif %}
+        {% if paper.doi %}<p class="pub__doi">DOI: <a href="https://doi.org/{{ paper.doi }}">{{ paper.doi }}</a></p>{% endif %}
+        {% if paper.video.doi %}<p class="pub__doi">Video DOI: <a href="https://doi.org/{{ paper.video.doi }}">{{ paper.video.doi }}</a></p>{% endif %}
       </div>
     </article>
     {% endfor %}
