@@ -7,6 +7,7 @@
 - slug: a-better-lesson
   title: "A Better Lesson: Staying on the Right Side of Scale"
   authors: Michael A. Heroux
+  quiz: true
   date: "2026-11-06"
   version: "1.0"
   doi: 10.5281/zenodo.24024225
@@ -25,6 +26,7 @@
 - slug: slide-rule-guide
   title: "The Slide Rule Guide: Ideas for If, When, and How to Use Generative AI Tools for Education"
   authors: Michael A. Heroux
+  quiz: true
   date: "2026-11-06"
   version: "1.0"
   doi: 10.5281/zenodo.24027009
@@ -46,6 +48,7 @@
 - slug: qpus-are-not-gpus
   title: "QPUs Are Not GPUs: Why Quantum Processors Need Constant Classical Control"
   authors: Michael A. Heroux
+  quiz: true
   date: "2026-11-06"
   version: "1.0"
   doi: 10.5281/zenodo.24028100
@@ -70,6 +73,7 @@
 - slug: research-software-science
   title: "Research Software Science: Expanding the Impact of Research Software Engineering"
   authors: Michael A. Heroux
+  quiz: true
   date: "2022-11-01"
   venue: "Computing in Science & Engineering 24(6): 22–27"
   url: https://digitalcommons.csbsju.edu/csci_pubs/36/

@@ -44,6 +44,7 @@ description: "Papers archived on Zenodo with permanent DOIs, with companion vide
         <h2><a href="{{ paper_url }}">{{ paper.title }}</a></h2>
         <p class="pub__meta">{{ paper.authors }} &middot; {{ paper.date | date: "%B %Y" }}{% if paper.venue %} &middot; <cite>{{ paper.venue | escape }}</cite>{% endif %}{% if paper.version %} &middot; Version {{ paper.version }}{% endif %}</p>
         <p>{{ paper.summary }}</p>
+        {% if paper.quiz %}<p class="pub__quiz"><a href="{{ site.quiz_player }}?quiz=../quizzes/{{ paper.slug }}/quiz.json">Take the Challenge: quiz yourself on this paper &rarr;</a></p>{% endif %}
         {% if paper.related %}
         <h3 class="pub__related-title">Related</h3>
         <ul class="pub__related">

@@ -265,6 +265,9 @@ h2 {
 .pub__body h2 a:hover { text-decoration: underline; }
 .pub__body p { margin: 0 0 1rem; }
 .pub__body .pub__meta { font-family: var(--font-ui); font-size: 0.85rem; color: var(--color-muted); }
+.pub__body .pub__quiz { font-family: var(--font-ui); font-size: 0.9rem; font-weight: 600; }
+.pub__quiz a { color: var(--color-copper); text-decoration: none; }
+.pub__quiz a:hover { text-decoration: underline; }
 .pub__body .pub__doi { font-family: var(--font-ui); font-size: 0.85rem; margin: 0; }
 .pub__body .pub__doi + .pub__doi { margin-top: 0.25rem; }
 .pub__body .pub__meta cite { font-style: italic; }

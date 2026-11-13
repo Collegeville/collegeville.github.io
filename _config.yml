@@ -7,6 +7,8 @@ url: "https://collegeville.github.io"
 # Organization root site, so baseurl is empty. Corpus and the other project
 # sites (/Corpus/, /Scribe/, ...) deploy from their own repos.
 baseurl: ""
+# Shared quiz player for papers with `quiz: true` (repo Collegeville/article-quiz).
+quiz_player: "https://collegeville.github.io/article-quiz/player/player.html"
 
 markdown: kramdown
 kramdown:

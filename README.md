@@ -24,3 +24,4 @@ bundle exec jekyll serve   # http://localhost:4000
    ```
 
 4. For a paper already published elsewhere, set `url` (where "Read paper" goes) in place of `doi`, `venue` for the journal citation, and `related` for other versions (each with `label`, `url` and an optional `note`). Set `video.doi` if the video has its own Zenodo record.
+5. Optional: once the paper has a quiz at `quizzes/<slug>/quiz.json` in [Collegeville/article-quiz](https://github.com/Collegeville/article-quiz), set `quiz: true` to show a "Take the Challenge" link.
