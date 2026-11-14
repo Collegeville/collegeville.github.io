@@ -1,0 +1,12 @@
+# Games listed on the Games page, in display order. To add a game, add an
+# entry and save its icon (square, SVG or PNG) in assets/games/.
+#   name:    shown as the tile heading and link text
+#   url:     where the game is played; root-relative for org project sites
+#   icon:    file name in assets/games/
+#   summary: one line on what the game teaches
+# The main page's "What's here now" tile for DataFables reuses its summary.
+
+- name: DataFables
+  url: /DataFables/
+  icon: datafables.svg
+  summary: "A daily data-cleaning puzzle: find what's wrong with the table, or decide that nothing is."

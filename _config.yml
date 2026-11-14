@@ -1,8 +1,9 @@
 title: Collegeville
-tagline: "Research Software Science"
+tagline: "Learning and Working as Computing Advances"
 description: >
-  Applying the scientific method to how we learn, build, and trust research
-  software, now in the age of AI.
+  Applying the scientific method to how we learn, build, and trust technical
+  work as computing changes, with AI the driver today and QPUs and other
+  advances on the horizon.
 url: "https://collegeville.github.io"
 # Organization root site, so baseurl is empty. Corpus and the other project
 # sites (/Corpus/, /Scribe/, ...) deploy from their own repos.

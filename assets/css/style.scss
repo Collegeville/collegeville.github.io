@@ -66,7 +66,16 @@ a:focus-visible { outline: 2px solid var(--color-copper); outline-offset: 2px; }
   text-decoration: none;
 }
 .topbar__id { display: flex; flex-wrap: wrap; align-items: baseline; gap: 0.1rem 1rem; }
-.topbar nav { display: flex; gap: 1.25rem; }
+.topbar nav { display: flex; flex-wrap: wrap; align-items: baseline; gap: 0.25rem 1.25rem; }
+/* Games sits apart at the far right, after a thin rule. */
+.topbar nav .topbar__games { color: var(--color-copper-light); }
+.topbar nav .topbar__sep {
+  align-self: center;
+  width: 1px;
+  height: 0.9rem;
+  background: var(--color-on-pine-muted);
+  opacity: 0.5;
+}
 .topbar nav a {
   font-family: var(--font-ui);
   font-size: 0.85rem;
@@ -127,7 +136,8 @@ h2 {
 .topics--flush { padding-top: 0; }
 .grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1.25rem; }
 .grid--two { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-.grid--two .tile p { font-family: var(--font-body); font-size: 1rem; line-height: 1.6; color: var(--color-ink); }
+.grid--two .tile p,
+.grid--threads .tile p { font-family: var(--font-body); font-size: 1rem; line-height: 1.6; color: var(--color-ink); }
 .tile {
   background: var(--color-surface);
   border: 1px solid var(--color-rule);
@@ -145,17 +155,18 @@ h2 {
 }
 .tile p { font-family: var(--font-ui); font-size: 0.92rem; line-height: 1.55; color: var(--color-muted); margin: 0; }
 
-.tile--corpus {
+.tile--feature {
   position: relative; /* anchors the stretched link below */
   background: var(--color-pine);
   border-color: var(--color-pine);
   border-top-color: var(--color-copper-light);
 }
-.tile--corpus:hover { background: var(--color-pine-deep); }
-.tile--corpus h3 { color: var(--color-on-pine); }
-.tile--corpus p { color: var(--color-on-pine-muted); }
-.tile--corpus a {
+.tile--feature:hover { background: var(--color-pine-deep); }
+.tile--feature h3 { color: var(--color-on-pine); }
+.tile--feature p { color: var(--color-on-pine-muted); }
+.tile--feature a {
   display: inline-block;
+  margin-right: 1.25rem;
   margin-top: 0.9rem;
   font-family: var(--font-ui);
   font-size: 0.9rem;
@@ -164,7 +175,16 @@ h2 {
   color: var(--color-copper-light);
   text-decoration: none;
 }
-.tile--corpus a::after { content: ""; position: absolute; inset: 0; }
+.tile--feature .tile__go::after { content: ""; position: absolute; inset: 0; } /* whole tile clicks through */
+.tile--feature .tile__more { position: relative; z-index: 1; color: var(--color-on-pine); text-decoration: underline; text-underline-offset: 0.15em; font-weight: 500; }
+
+/* Linked tiles (Archive and Games pages): the heading link covers the tile. */
+.tile--link { position: relative; }
+.tile--link:hover { border-color: var(--color-pine); }
+.tile--link h3 a { color: inherit; text-decoration: none; }
+.tile--link h3 a::after { content: ""; position: absolute; inset: 0; }
+.tile--link:hover h3 a { text-decoration: underline; }
+.tile__icon { display: block; width: 4rem; height: 4rem; margin-bottom: 0.9rem; }
 
 /* Workshops page ---------------------------------------------------------- */
 .hero--page { padding: 3.75rem 0 3.5rem; }

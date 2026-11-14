@@ -1,0 +1,28 @@
+---
+layout: default
+title: Games
+permalink: /games/
+html_title: "Games | Collegeville"
+description: "Puzzles and quizzes that teach the basics AI can now do quickly, so we keep the judgment to check its work."
+---
+<section class="hero hero--page">
+  <div class="wrap">
+    <h1>Games</h1>
+    <hr>
+    <p>Puzzles and quizzes that teach the basics AI can now do quickly, so we keep the judgment to check its work. More are on the way.</p>
+  </div>
+</section>
+
+<section class="wrap topics">
+  <h2>Play now</h2>
+  {% comment %}One tile per entry in _data/games.yml.{% endcomment %}
+  <div class="grid">
+    {% for game in site.data.games %}
+    <article class="tile tile--link tile--game">
+      <img class="tile__icon" src="{{ game.icon | prepend: '/assets/games/' | relative_url }}" alt="{{ game.name | escape }} icon" width="64" height="64">
+      <h3><a href="{{ game.url | relative_url }}">{{ game.name }}</a></h3>
+      <p>{{ game.summary }}</p>
+    </article>
+    {% endfor %}
+  </div>
+</section>
