@@ -77,6 +77,9 @@
   date: "2022-11-01"
   venue: "Computing in Science & Engineering 24(6): 22–27"
   url: https://digitalcommons.csbsju.edu/csci_pubs/36/
+  # The cover is the publisher's page, so it is not under this site's
+  # CC BY 4.0 license. `cover_note` shows under the cover on the papers page.
+  cover_note: "First page as published in Computing in Science & Engineering. Copyright remains with the publisher; not under this site's licenses."
   summary: >
     Software plays a central role in scientific discovery. Improving how we
     develop and use software for research can have both broad and deep impacts

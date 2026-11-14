@@ -26,6 +26,7 @@ description: "Papers archived on Zenodo with permanent DOIs, with companion vide
           <span class="pub__frame"><img src="{{ paper.slug | prepend: '/assets/papers/' | append: '.jpg' | relative_url }}" alt="First page of {{ paper.title | escape }}" width="680" height="880" loading="lazy"></span>
           <span class="pub__label">Read paper &#8599;</span>
         </a>
+        {% if paper.cover_note %}<p class="pub__credit">{{ paper.cover_note }}</p>{% endif %}
         {% if paper.video %}
         {% if paper.video.kind == "short" %}
           {% assign video_url = paper.video.id | prepend: "https://www.youtube.com/shorts/" %}
