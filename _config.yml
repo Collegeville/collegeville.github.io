@@ -2,8 +2,8 @@ title: Collegeville
 tagline: "Learning and Working as Computing Advances"
 description: >
   Applying the scientific method to how we learn, build, and trust technical
-  work as computing changes, with AI the driver today and QPUs and other
-  advances on the horizon.
+  work as computing changes, with AI the driver today and other advances on
+  the horizon.
 url: "https://collegeville.github.io"
 # Organization root site, so baseurl is empty. Corpus and the other project
 # sites (/Corpus/, /papers/, /Scribe/, ...) deploy from their own repos.
