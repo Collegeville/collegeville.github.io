@@ -1,0 +1,15 @@
+# Tools listed on the Tools page, in display order. To add a tool, add an
+# entry and save its icon (square, SVG or PNG) in assets/tools/.
+#   name:    shown as the tile heading and link text
+#   url:     where the tool lives (the whole tile links here)
+#   icon:    file name in assets/tools/
+#   summary: one or two lines on what the tool is for
+#   example: optional; a live example, linked below the summary
+#   example_label: link text for `example`
+
+- name: Papers Starter
+  url: https://github.com/Collegeville/papers
+  icon: papers-starter.svg
+  summary: "A ready-made site for a collection of papers, each with a short pitch video and a quiz, plus the Claude skills that help make them. Copy the repo to start your own."
+  example: /papers/
+  example_label: "See the example site"

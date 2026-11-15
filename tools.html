@@ -1,0 +1,29 @@
+---
+layout: default
+title: Tools
+permalink: /tools/
+html_title: "Tools | Collegeville"
+description: "Starter kits and Claude skills you can copy for your own teaching and research."
+---
+<section class="hero hero--page">
+  <div class="wrap">
+    <h1>Tools</h1>
+    <hr>
+    <p>Starter kits and Claude skills you can copy for your own teaching and research. More are on the way.</p>
+  </div>
+</section>
+
+<section class="wrap topics">
+  <h2>Ready to use</h2>
+  {% comment %}One tile per entry in _data/tools.yml.{% endcomment %}
+  <div class="grid">
+    {% for tool in site.data.tools %}
+    <article class="tile tile--link">
+      <img class="tile__icon" src="{{ tool.icon | prepend: '/assets/tools/' | relative_url }}" alt="{{ tool.name | escape }} icon" width="64" height="64">
+      <h3><a href="{{ tool.url | relative_url }}">{{ tool.name }}</a></h3>
+      <p>{{ tool.summary }}</p>
+      {% if tool.example %}<a class="tile__extra" href="{{ tool.example | relative_url }}">{{ tool.example_label | default: "See an example" }}</a>{% endif %}
+    </article>
+    {% endfor %}
+  </div>
+</section>

@@ -8,23 +8,10 @@ bundle install
 bundle exec jekyll serve   # http://localhost:4000
 ```
 
-## Adding a paper
+## Adding a tool
 
-1. Add an entry to `_data/papers.yml`. The papers page lists entries newest month first, and alphabetically by title within a month.
-2. Save the paper's first page as its cover image:
-
-   ```bash
-   pdftoppm -f 1 -l 1 -r 80 -jpeg -jpegopt quality=82 -singlefile paper.pdf assets/papers/<slug>
-   ```
-
-3. Optional: if YouTube's thumbnail is not the frame you want, save one from the video and set `thumbnail` on the entry. Choose a time when the title slide has finished appearing:
-
-   ```bash
-   ffmpeg -ss 4 -i video.mp4 -frames:v 1 -vf scale=540:-2 -q:v 3 assets/papers/<slug>-video.jpg
-   ```
-
-4. For a paper already published elsewhere, set `url` (where "Read paper" goes) in place of `doi`, `venue` for the journal citation, and `related` for other versions (each with `label`, `url` and an optional `note`). Set `video.doi` if the video has its own Zenodo record.
-5. Optional: once the paper has a quiz at `quizzes/<slug>/quiz.json` in [Collegeville/article-quiz](https://github.com/Collegeville/article-quiz), set `quiz: true` to show a "Take the Challenge" link.
+1. Add an entry to `_data/tools.yml` (name, url, icon, summary, and optionally an example link). The Tools page shows one tile per entry, in file order.
+2. Save the tool's square icon (SVG or PNG) in `assets/tools/`.
 
 ## Adding a game
 
@@ -34,7 +21,7 @@ bundle exec jekyll serve   # http://localhost:4000
 
 ## License
 
-Code is under the [MIT License](LICENSE). Documents, written content, images, audio, and video are under [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/); see [LICENSE-CONTENT](LICENSE-CONTENT). © 2026 Michael A. Heroux. Not covered: the first-page image of the published Research Software Science article (`assets/papers/research-software-science.jpg`), whose copyright stays with the publisher.
+Code is under the [MIT License](LICENSE). Documents, written content, images, audio, and video are under [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/); see [LICENSE-CONTENT](LICENSE-CONTENT). © 2026 Michael A. Heroux.
 
 ## Image policy
 
