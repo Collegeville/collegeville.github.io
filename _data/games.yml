@@ -40,10 +40,12 @@
 
 - name: TestFables
   url: /TestFables/
-  summary: "What would this test catch, and what would slip through?"
+  icon: testfables.svg
+  alt: "TestFables icon: a large check mark with a small gap in it"
+  summary: "When can you trust a green checkmark? What would this test catch, and what would slip through?"
   subjects: [testing]
   audience: "Undergraduate students who know basic programming"
-  status: planned
+  status: live
 
 - name: UDXFables
   url: /UDXFables/
