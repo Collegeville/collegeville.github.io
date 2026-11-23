@@ -17,10 +17,12 @@ description: "The Fables games: short daily puzzles that keep you sharp at the s
   One card per entry in _data/games.yml. Planned games are hidden, and a game without an icon is
   never shown as live. Once there are more than eight games, the cards group by first subject.
 {% endcomment %}
-{% assign shown = site.data.games | where_exp: "g", "g.status == 'live' or g.status == 'in-progress'" %}
+{% assign live_games = site.data.games | where: "status", "live" %}
+{% assign wip_games = site.data.games | where: "status", "in-progress" %}
+{% assign shown = live_games | concat: wip_games %}
 {% assign grouped = false %}
 {% if shown.size > 8 %}
-  {% assign groups = shown | group_by_exp: "g", "g.subjects | first" %}
+  {% assign groups = shown | group_by_exp: "g", "g.subjects.first" %}
   {% assign grouped = true %}
 {% else %}
   {% assign groups = shown | group_by_exp: "g", "'all'" %}
