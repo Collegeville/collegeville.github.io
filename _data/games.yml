@@ -31,10 +31,12 @@
 
 - name: ScaleFables
   url: /ScaleFables/
+  icon: scalefables.svg
+  alt: "ScaleFables icon: rising bars, with the last bar shooting up"
   summary: "How does it grow, and how does it speed up? Build the instinct for how code scales."
   subjects: [scaling]
   audience: "Students past CS1 and anyone who reasons about performance"
-  status: planned
+  status: live
 
 - name: TestFables
   url: /TestFables/
