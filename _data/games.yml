@@ -49,7 +49,9 @@
 
 - name: UDXFables
   url: /UDXFables/
+  icon: udxfables.svg
+  alt: "UDXFables icon: a round-headed figure and a square-headed agent side by side"
   summary: "Judge user and developer experience, for people and for agents."
   subjects: [experience]
   audience: "Anyone who builds software, tools, or communities"
-  status: planned
+  status: in-progress
