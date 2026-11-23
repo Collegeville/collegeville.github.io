@@ -1,0 +1,8 @@
+{%- comment -%}
+  "DataFables, CodeFables and ScaleFables are live", from _data/games.yml. Same rule as the
+  Games page: a game counts as live only once it also has an icon. No newline at the end of
+  this file, or a space shows before the comma that follows it.
+{%- endcomment -%}
+{%- assign live = "" | split: "" -%}
+{%- for g in site.data.games -%}{%- if g.status == "live" and g.icon -%}{%- assign live = live | push: g.name -%}{%- endif -%}{%- endfor -%}
+{%- for name in live -%}{%- if forloop.index > 1 -%}{%- if forloop.last %} and {% else %}, {% endif -%}{%- endif -%}{{ name }}{%- endfor %} {% if live.size == 1 %}is{% else %}are{% endif %} live
