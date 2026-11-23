@@ -132,7 +132,6 @@ h2 {
 
 .intro { padding-top: 3.5rem; }
 .intro p { font-size: 1.2rem; line-height: 1.6; max-width: 46rem; margin: 0; }
-.intro p + p { margin-top: 1em; }
 .topics { padding-top: 3.5rem; padding-bottom: 4rem; }
 .topics--flush { padding-top: 0; }
 .grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1.25rem; }
@@ -201,6 +200,58 @@ h2 {
 .tile--link .tile__status { color: var(--color-pine); }
 .tile--soon { border-top-color: var(--color-rule); }
 
+/* Games page: "Why games?" link in the header and its popup --------------- */
+.hero__row { display: flex; flex-wrap: wrap; align-items: flex-end; gap: 1.25rem 3rem; }
+.hero__more {
+  font: 600 1rem/1.4 var(--font-ui);
+  color: var(--color-copper-light);
+  background: none;
+  border: 0;
+  padding: 0;
+  cursor: pointer;
+  white-space: nowrap;
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.2em;
+}
+.hero__more:hover { color: var(--color-on-pine); }
+.hero__more:focus-visible { outline: 2px solid var(--color-copper-light); outline-offset: 3px; }
+
+.popup {
+  width: min(42rem, calc(100% - 2rem));
+  max-height: calc(100dvh - 2rem);
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  margin: auto;
+  padding: 2.5rem 2.5rem 2rem;
+  border: 0;
+  border-top: 4px solid var(--color-pine);
+  border-radius: var(--radius);
+  background: var(--color-surface);
+  color: var(--color-ink);
+  box-shadow: 0 1.25rem 3.5rem rgba(22, 58, 47, 0.35);
+}
+.popup::backdrop { background: rgba(22, 58, 47, 0.55); }
+.popup h2 { padding-right: 2.5rem; }
+.popup p { margin: 0 0 1em; }
+.popup p:last-child { margin-bottom: 0; }
+.popup__close {
+  position: absolute;
+  top: 0.75rem;
+  right: 0.75rem;
+  width: 2.25rem;
+  height: 2.25rem;
+  font-size: 1.6rem;
+  line-height: 1;
+  color: var(--color-muted);
+  background: none;
+  border: 0;
+  border-radius: var(--radius);
+  cursor: pointer;
+}
+.popup__close:hover { color: var(--color-ink); }
+.popup__close:focus-visible { outline: 2px solid var(--color-copper); outline-offset: 2px; }
+
 /* Workshops page ---------------------------------------------------------- */
 .hero--page { padding: 3.75rem 0 3.5rem; }
 .hero--page h1 { font-size: clamp(2rem, 4.2vw, 3rem); }
@@ -253,6 +304,7 @@ h2 {
   .topics--flush { padding-top: 0; }
   .intro { padding-top: 2.5rem; }
   .intro p { font-size: 1.1rem; }
+  .popup { padding: 2rem 1.25rem 1.5rem; }
   .page { padding-top: 2.5rem; padding-bottom: 2.5rem; }
 }
 
