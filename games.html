@@ -3,26 +3,44 @@ layout: default
 title: Games
 permalink: /games/
 html_title: "Games | Collegeville"
-description: "Puzzles and quizzes that teach the basics AI can now do quickly, so we keep the judgment to check its work."
+description: "The Fables games: short daily puzzles that keep you sharp at the skills AI now does quickly, so you keep the judgment to check its work."
 ---
 <section class="hero hero--page">
   <div class="wrap">
     <h1>Games</h1>
     <hr>
-    <p>Puzzles and quizzes that teach the basics AI can now do quickly, so we keep the judgment to check its work. More are on the way.</p>
+    <p>The Fables games are short daily puzzles, each a small gym for a skill that AI tools now do quickly, so we keep the judgment to check their work. DataFables is the first, and more are on the way.</p>
   </div>
 </section>
 
+{% comment %}
+  One card per entry in _data/games.yml. Planned games are hidden, and a game without an icon is
+  never shown as live. Once there are more than eight games, the cards group by first subject.
+{% endcomment %}
+{% assign shown = site.data.games | where_exp: "g", "g.status == 'live' or g.status == 'in-progress'" %}
+{% assign grouped = false %}
+{% if shown.size > 8 %}
+  {% assign groups = shown | group_by_exp: "g", "g.subjects | first" %}
+  {% assign grouped = true %}
+{% else %}
+  {% assign groups = shown | group_by_exp: "g", "'all'" %}
+{% endif %}
+
 <section class="wrap topics">
-  <h2>Play now</h2>
-  {% comment %}One tile per entry in _data/games.yml.{% endcomment %}
+  {% for group in groups %}
+  <h2>{% if grouped %}{{ group.name | capitalize }}{% else %}The Fables family{% endif %}</h2>
   <div class="grid">
-    {% for game in site.data.games %}
-    <article class="tile tile--link tile--game">
-      <img class="tile__icon" src="{{ game.icon | prepend: '/assets/games/' | relative_url }}" alt="{{ game.name | escape }} icon" width="64" height="64">
-      <h3><a href="{{ game.url | relative_url }}">{{ game.name }}</a></h3>
+    {% for game in group.items %}
+    {% assign live = false %}{% if game.status == 'live' and game.icon %}{% assign live = true %}{% endif %}
+    <article class="tile tile--game{% if live %} tile--link{% else %} tile--soon{% endif %}">
+      {% if game.icon %}
+      <img class="tile__icon" src="{{ game.icon | prepend: '/assets/games/' | relative_url }}" alt="{{ game.alt | default: game.name | escape }}" width="64" height="64">
+      {% endif %}
+      <h3>{% if live %}<a href="{{ game.url | relative_url }}">{{ game.name }}</a>{% else %}{{ game.name }}{% endif %}</h3>
       <p>{{ game.summary }}</p>
+      <p class="tile__status">{% if live %}Play now · {% else %}In progress · {% endif %}{{ game.audience }}</p>
     </article>
     {% endfor %}
   </div>
+  {% endfor %}
 </section>

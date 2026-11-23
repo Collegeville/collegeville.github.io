@@ -1,12 +1,49 @@
-# Games listed on the Games page, in display order. To add a game, add an
-# entry and save its icon (square, SVG or PNG) in assets/games/.
-#   name:    shown as the tile heading and link text
-#   url:     where the game is played; root-relative for org project sites
-#   icon:    file name in assets/games/
-#   summary: one line on what the game teaches
-# The main page's "What's here now" tile for DataFables reuses its summary.
+# The Fables family catalog: one entry per game. Adding a game is one entry here plus its icon.
+# The Games page shows live and in-progress games; planned ones stay listed here but hidden.
+# The Collegeville org profile README (repo Collegeville/.github) is checked against this file.
+#
+#   name:     the game's name; also its repo name and page address
+#   url:      where the game is played (root-relative for Collegeville project sites)
+#   icon:     file name in assets/games/, copied from the game repo's icons/icon.svg
+#   alt:      the icon's alt text (the game repo's icons/alt.txt)
+#   summary:  one line on what the game teaches
+#   subjects: subject tags, also used as GitHub topics; the first one groups the catalog
+#   audience: who it is for
+#   status:   live, in-progress, or planned. A game needs an icon before it can be live.
 
 - name: DataFables
   url: /DataFables/
   icon: datafables.svg
+  alt: "DataFables icon: a small table with one flagged cell"
   summary: "A daily data-cleaning puzzle: find what's wrong with the table, or decide that nothing is."
+  subjects: [data]
+  audience: "Students and anyone who works with data"
+  status: live
+
+- name: CodeFables
+  url: /CodeFables/
+  summary: "Read short Python snippets, predict what they do, and spot what's wrong."
+  subjects: [code]
+  audience: "Beginning programmers (CS1) and anyone who judges code"
+  status: planned
+
+- name: ScaleFables
+  url: /ScaleFables/
+  summary: "How does it grow, and how does it speed up? Build the instinct for how code scales."
+  subjects: [scaling]
+  audience: "Students past CS1 and anyone who reasons about performance"
+  status: planned
+
+- name: TestFables
+  url: /TestFables/
+  summary: "What would this test catch, and what would slip through?"
+  subjects: [testing]
+  audience: "Undergraduate students who know basic programming"
+  status: planned
+
+- name: UDXFables
+  url: /UDXFables/
+  summary: "Judge user and developer experience, for people and for agents."
+  subjects: [experience]
+  audience: "Anyone who builds software, tools, or communities"
+  status: planned

@@ -15,6 +15,21 @@ bundle exec jekyll serve   # http://localhost:4000
 
 ## Adding a game
 
+The Games page is the catalog of the Fables family, built from `_data/games.yml`.
+
+1. Add one entry to `_data/games.yml` with the fields described at the top of that file. Use `status: planned` until work starts; planned games stay hidden.
+2. Copy the game's `icons/icon.svg` from its repo to `assets/games/<name>.svg`, and its `icons/alt.txt` text into `alt`. A game needs an icon before it shows as live.
+3. Set `status: in-progress` to show it as coming soon (no link), then `live` once it is published.
+
+Jekyll builds the cards from the file on GitHub, so there is no script to run and the cards can't drift from the list. Once there are more than eight games, the page groups them by their first subject. Also add the game to the org profile README in [Collegeville/.github](https://github.com/Collegeville/.github); its weekly check flags any game missing there.
+
+## Adding a tool
+
+1. Add an entry to `_data/tools.yml` (name, url, icon, summary, and optionally an example link). The Tools page shows one tile per entry, in file order.
+2. Save the tool's square icon (SVG or PNG) in `assets/tools/`.
+
+## Adding a game
+
 1. Add an entry to `_data/games.yml` (name, url, icon, summary). The Games page shows one tile per entry, in file order.
 2. Save the game's square icon (SVG or PNG) in `assets/games/`.
 3. Optional: add a tile for it under "What's here now" in `index.html`.
