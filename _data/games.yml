@@ -22,10 +22,12 @@
 
 - name: CodeFables
   url: /CodeFables/
+  icon: codefables.svg
+  alt: "CodeFables icon: four short indented lines of code, with the third line flagged"
   summary: "Read short Python snippets, predict what they do, and spot what's wrong."
   subjects: [code]
   audience: "Beginning programmers (CS1) and anyone who judges code"
-  status: planned
+  status: live
 
 - name: ScaleFables
   url: /ScaleFables/
