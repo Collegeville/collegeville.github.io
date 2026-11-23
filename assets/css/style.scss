@@ -132,6 +132,7 @@ h2 {
 
 .intro { padding-top: 3.5rem; }
 .intro p { font-size: 1.2rem; line-height: 1.6; max-width: 46rem; margin: 0; }
+.intro p + p { margin-top: 1em; }
 .topics { padding-top: 3.5rem; padding-bottom: 4rem; }
 .topics--flush { padding-top: 0; }
 .grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1.25rem; }
