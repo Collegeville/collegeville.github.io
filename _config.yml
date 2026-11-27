@@ -21,6 +21,18 @@ plugins:
   - jekyll-sitemap
   - jekyll-seo-tag
 
+# Share image for every page. jekyll-seo-tag turns this into og:image (with
+# width, height and alt) and a large Twitter card, using an absolute URL.
+defaults:
+  - scope:
+      path: ""
+    values:
+      image:
+        path: /images/collegeville-social-preview.png
+        width: 1280
+        height: 640
+        alt: "Collegeville: a rising line inside a letter C, with the tagline Learning and working as computing advances"
+
 exclude:
   - Gemfile
   - Gemfile.lock
