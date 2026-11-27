@@ -65,6 +65,13 @@ a:focus-visible { outline: 2px solid var(--color-copper); outline-offset: 2px; }
   color: inherit;
   text-decoration: none;
 }
+/* The mark sits beside the name; the name stays on the text baseline. */
+.brand__mark {
+  width: 1.75rem;
+  height: 1.75rem;
+  margin-right: 0.5rem;
+  vertical-align: -0.45rem;
+}
 .topbar__id { display: flex; flex-wrap: wrap; align-items: baseline; gap: 0.1rem 1rem; }
 .topbar nav { display: flex; flex-wrap: wrap; align-items: baseline; gap: 0.25rem 1.25rem; }
 /* Games sits apart at the far right, after a thin rule. */
