@@ -55,3 +55,21 @@
   subjects: [experience]
   audience: "Anyone who builds software, tools, or communities"
   status: live
+
+- name: EarFables
+  url: /EarFables/
+  icon: earfables.svg
+  alt: "EarFables icon: a stylized ear beside a musical note"
+  summary: "Hear the tune, find the score: a short melody plays, and you pick the score that matches."
+  subjects: [music, ear-training]
+  audience: "Music students and anyone learning to read music"
+  status: live
+
+- name: ClapFables
+  url: /ClapFables/
+  icon: clapfables.svg
+  alt: "ClapFables icon: two hands meeting in a clap, under a pair of beamed eighth notes"
+  summary: "Hear the rhythm, find the score: two bars are clapped, and you pick the written rhythm that matches."
+  subjects: [music, rhythm]
+  audience: "Music students and anyone learning to read rhythm"
+  status: live
